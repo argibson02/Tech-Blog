@@ -17,8 +17,8 @@ This is a mock Tech Blog built with MySQL, Sequelize, Express.js, and Node.js.
 **[Click this link WATCH the Tech Blog in action]()**
 
 
-![Demo image of Tech Blog](./images/ecommerce-demo.png)
-![Demo GIF of Tech Blog](./images/ecommerce-demo.gif)
+![Demo image of Tech Blog](./images/tech-blog-demo.png)
+![Demo GIF of Tech Blog](./images/tech-blog-demo.gif)
 
  <br />
 
@@ -42,8 +42,6 @@ Startup Instructions
 * [MySQL2](https://www.npmjs.com/package/mysql2)
 * [Sequelize](https://www.npmjs.com/package/sequelize)
 * [Dotenv](https://www.npmjs.com/package/dotenv)
-* [Bcrypt](https://www.npmjs.com/package/bcrypt)
-
 
 ## Technologies Used
 * [Microsoft Visual Studio Code](https://code.visualstudio.com/)
