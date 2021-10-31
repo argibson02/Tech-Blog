@@ -27,7 +27,7 @@ Article.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    comment: {
+    comment_id: {
       type: DataTypes.INTEGER,
       references: {
         model: 'comment',

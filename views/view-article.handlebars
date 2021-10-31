@@ -1,0 +1,43 @@
+<div class="article-card">
+  <div class="article-card-header">
+    {{article_title}}
+  </div>
+  <div class="card-body">
+    <p>
+      {{description}}
+    </p>
+    <p>
+      Author:
+      {{author}}
+      {{timestamp}}
+    </p>
+    {{#each article.comment as |comment|}}
+    {{> comment-details}}}
+    {{/each}}
+  </div>
+</div>
+
+<!-- This is the form for updating a article. According to MVC framework, what is this form responsible for? -->
+<!-- This form is responsible for the UI logic, or the components in the View that the user will interact with. -->
+<!--What isn't it responsible for? -->
+<!--It is not responsible for data-related logic, requests, or business-logic. -->
+
+
+<div class="edit-article-container">
+  <h2>Add a comment!</h2>
+  <form class="edit-article-form">
+    <label for="description">
+     Comment body:
+    </label>
+    <br />
+    <textarea id="description" name="description" rows="5" cols="30">
+      {{description}}
+    </textarea>
+    <br />
+    <button type="submit" value="Submit">
+      Submit
+    </button>
+  </form>
+</div>
+<script src="/js/add-comment.js"></script>
+

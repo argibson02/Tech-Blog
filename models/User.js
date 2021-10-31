@@ -35,6 +35,13 @@ User.init(
         len: [6],
       },
     },
+    article_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'article',
+        key: 'id',
+      },
+    },
   },
   {
     hooks: {
