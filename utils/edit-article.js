@@ -1,6 +1,6 @@
 async function editFormHandler(event) {
   event.preventDefault();
-  const dish_name = document.querySelector('#dish_name').value;
+  const dish_name = document.querySelector('#article_title').value;
   const description = document.querySelector('#description').value;
   const guest_name = document.querySelector('#guest_name').value;
   

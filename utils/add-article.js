@@ -1,18 +1,20 @@
+var timeNow = require('/helper.js');
+
 async function newFormHandler(event) {
   event.preventDefault();
 
-  const dish_name = document.querySelector('#dish_name').value;
+  const article_title = document.querySelector('#article_title').value;
   const description = document.querySelector('#description').value;
-  const guest_name = document.querySelector('#guest_name').value;
-  const has_nuts = document.querySelector('#has_nuts:checked') ? true : false;
+  const author = document.querySelector('#author').value;
+  const timestamp = timeNow;
 
   const response = await fetch(`/api/dish`, {
     method: 'POST',
     body: JSON.stringify({
-      dish_name,
+      article_title,
       description,
-      guest_name,
-      has_nuts,
+      author,
+      timestamp,
     }),
     headers: {
       'Content-Type': 'application/json',
@@ -22,8 +24,8 @@ async function newFormHandler(event) {
   if (response.ok) {
     document.location.replace('/');
   } else {
-    alert('Failed to add dish');
+    alert('Failed to add article');
   }
 }
 
-document.querySelector('.new-dish-form').addEventListener('submit', newFormHandler);
+document.querySelector('.new-article-form').addEventListener('submit', newFormHandler);

@@ -11,9 +11,9 @@
       {{author}}
       {{timestamp}}
     </p>
-    {{#if comment}}
+    {{#each article.comment as |comment|}}
     {{> comment-details}}}
-    {{/if}}
+    {{/each}}
   </div>
 </div>
 
@@ -22,17 +22,36 @@
 <!--What isn't it responsible for? -->
 <!--It is not responsible for data-related logic, requests, or business-logic. -->
 
+
 <div class="edit-dish-container">
-  <h2>
-    Update Dish
-  </h2>
+  <h2>Add a comment!</h2>
   <form class="edit-dish-form">
-    <label for="dish_name">
+    <label for="description">
+     Comment body:
+    </label>
+    <br />
+    <textarea id="description" name="description" rows="5" cols="30">
+      {{description}}
+    </textarea>
+    <br />
+    <button type="submit" value="Submit">
+      Submit
+    </button>
+  </form>
+</div>
+<script src="/js/edit-dish.js"></script>
+
+
+
+{{!-- <div class="edit-dish-container">
+  <h2>Add a comment </h2>
+  <form class="edit-dish-form">
+    <label for="article_title">
       Dish Name:
     </label>
     <br />
-    <textarea id="dish_name" name="dish_name" rows="2" cols="30">
-      {{dish_name}}
+    <textarea id="article_title" name="article_title" rows="2" cols="30">
+      {{article_title}}
     </textarea>
     <br />
     <label for="description">
@@ -43,23 +62,9 @@
       {{description}}
     </textarea>
     <br />
-    <label for="guest_name">
-      Guest Name:
-    </label>
-    <br />
-    <textarea id="guest_name" name="guest_name" rows="2" cols="30">
-      {{guest_name}}
-    </textarea>
-    <br />
-    <br />
-    <input type="checkbox" id="has_nuts" name="has_nuts" value="true" />
-    <label for="has_nuts">
-      Check box if this dish contains nuts
-    </label>
-    <br />
     <button type="submit" value="Submit">
       Submit
     </button>
   </form>
 </div>
-<script src="/js/edit-dish.js"></script>
+<script src="/js/edit-dish.js"></script> --}}
