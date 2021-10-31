@@ -23,10 +23,6 @@ Article.init(
       type: DataTypes.STRING, // might be able to swap this out for username from USER
       allowNull: false,
     },
-    timestamp: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
     user_id: {
       type: DataTypes.INTEGER,
       references: {
@@ -37,6 +33,7 @@ Article.init(
   },
   {
     sequelize,
+    timestamps: true,
     freezeTableName: true,
     underscored: true,
     modelName: 'article',
