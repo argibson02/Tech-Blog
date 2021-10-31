@@ -16,7 +16,7 @@ Article.init(
       allowNull: true,
     },
     description: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: true,
     },
     author: {
@@ -31,13 +31,6 @@ Article.init(
       type: DataTypes.INTEGER,
       references: {
         model: 'user',
-        key: 'id',
-      },
-    },
-    comment_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'comment',
         key: 'id',
       },
     },

@@ -12,7 +12,7 @@ Comment.init(
             autoIncrement: true,
         },
         description: {
-            type: DataTypes.STRING,
+            type: DataTypes.TEXT,
             allowNull: true,
         },
         author: {
@@ -26,10 +26,17 @@ Comment.init(
         article_id: {
             type: DataTypes.INTEGER,
             references: {
-              model: 'article',
-              key: 'id',
+                model: 'article',
+                key: 'id',
             },
-          },
+        },
+        user_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'user',
+                key: 'id',
+            },
+        },
     },
     {
         sequelize,
