@@ -16,13 +16,20 @@ Comment.init(
             allowNull: true,
         },
         author: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING, // might be able to swap this out for username from USER
             allowNull: false,
         },
         timestamp: {
             type: DataTypes.STRING,
             allowNull: false,
         },
+        article_id: {
+            type: DataTypes.INTEGER,
+            references: {
+              model: 'article',
+              key: 'id',
+            },
+          },
     },
     {
         sequelize,
