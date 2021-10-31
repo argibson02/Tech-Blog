@@ -3,15 +3,15 @@ const withAuth = (req, res, next) => {
     res.redirect('/login');
   } else {
     next();
-    }
+  }
 };
 
-// const withOutAuth = (req, res, next) => {
-//   if (req.session.loggedIn) {
-//     res.redirect('/login');
-//   } else {
-//     next();
-//     }
-// };
+const areLogged = (req, res, next) => {
+  if (req.session.loggedIn) {
+    res.redirect('/');
+  } else {
+    next();
+  }
+};
 
-module.exports = withAuth;
+module.exports = { withAuth, areLogged }

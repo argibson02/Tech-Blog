@@ -63,61 +63,61 @@ router.get('/article/:id', async (req, res) => {
 
 
 // GET one comment  DELETE AFTER TESTING
-router.get('/article/test/:id', withAuth, async (req, res) => {
-  try {
-    const dbArticleData = await Article.findByPk(req.params.id, {
-      include: [
-        {
-          model: Comment,
-          attributes: [
-            'id',
-            'description',
-            'author',
-            'timestamp',
-          ],
-        },
-        {
-          model: User,
-          attributes: ['id', 'username'],
-        },
-      ],
-    });
-    const articleData = dbArticleData.get({ plain: true });    
-    res.status(200).json(articleData);
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
-  }
-});
+// router.get('/article/test/:id', withAuth, async (req, res) => {
+//   try {
+//     const dbArticleData = await Article.findByPk(req.params.id, {
+//       include: [
+//         {
+//           model: Comment,
+//           attributes: [
+//             'id',
+//             'description',
+//             'author',
+//             'timestamp',
+//           ],
+//         },
+//         {
+//           model: User,
+//           attributes: ['id', 'username'],
+//         },
+//       ],
+//     });
+//     const articleData = dbArticleData.get({ plain: true });    
+//     res.status(200).json(articleData);
+//   } catch (err) {
+//     console.log(err);
+//     res.status(500).json(err);
+//   }
+// });
 
 
 // GET one comment  DELETE AFTER TESTING
-router.get('/comment/test/:id', withAuth, async (req, res) => {
-  try {
-    const dbCommentData = await Comment.findByPk(req.params.id);
+// router.get('/comment/test/:id', withAuth, async (req, res) => {
+//   try {
+//     const dbCommentData = await Comment.findByPk(req.params.id);
 
-    const commentData = dbCommentData.get({ plain: true });
+//     const commentData = dbCommentData.get({ plain: true });
 
-    res.status(200).json(commentData);
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
-  }
-});
+//     res.status(200).json(commentData);
+//   } catch (err) {
+//     console.log(err);
+//     res.status(500).json(err);
+//   }
+// });
 
 // GET one USER  DELETE AFTER TESTING
-router.get('/user/test/:id', withAuth, async (req, res) => {
-  try {
-    const dbUserData = await User.findByPk(req.params.id);
+// router.get('/user/test/:id', withAuth, async (req, res) => {
+//   try {
+//     const dbUserData = await User.findByPk(req.params.id);
 
-    const userData = dbUserData.get({ plain: true });
+//     const userData = dbUserData.get({ plain: true });
 
-    res.status(200).json(userData);
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
-  }
-});
+//     res.status(200).json(userData);
+//   } catch (err) {
+//     console.log(err);
+//     res.status(500).json(err);
+//   }
+// });
 
 
 

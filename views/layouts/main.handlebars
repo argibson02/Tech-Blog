@@ -20,10 +20,15 @@
     {{else}}
     <a href="/login">Login</a>
     {{/if}}
+    <a href="/dashboard">My Dashboard</a>
   </nav>
   <main>
     <aside>
       <h2>Enjoy posting!</h2>
+      <br />
+      <div class="form-group">
+            <a class="btn btn-primary" href="/article/new">Create a new Post</a>
+      </div>
     </aside>
     <div class="article">
       {{{body}}}
