@@ -5,7 +5,7 @@ async function editFormHandler(event) {
   const article_title = document.querySelector('#article_title').value;
   const description = document.querySelector('#description').value;
   const author = document.querySelector('#author').value;
-  const timestamp = timeNow;
+  const timestamp = timeNow();
 
   // What will the value of has_nuts be if the box in the form is checked? 
   // The value of has_nuts will be true if the box is checked. 

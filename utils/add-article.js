@@ -6,7 +6,7 @@ async function newFormHandler(event) {
   const article_title = document.querySelector('#article_title').value;
   const description = document.querySelector('#description').value;
   const author = document.querySelector('#author').value;
-  const timestamp = timeNow;
+  const timestamp = timeNow();
 
   const response = await fetch(`/api/dish`, {
     method: 'POST',

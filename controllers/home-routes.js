@@ -14,7 +14,7 @@ router.get('/', async (req, res) => {
       ],
     });
 
-    const galleries = dbGalleryData.map((gallery) =>
+    const galleries = dbGalleryData.map((gallery) => // change to articles
       gallery.get({ plain: true })
     );
 
