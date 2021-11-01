@@ -3,6 +3,19 @@ const { Comment, User, Article } = require('../../models');
 const withAuth = require('../../utils/auth.js');
 
 
+router.get('/', async (req, res) => {
+    console.log(">>> COMMENT GET <<<");
+    try {
+        const newComment = await Comment.findAll({
+            include: [{ model: User }, { model: Article }]
+        });
+        res.status(200).json(newComment);
+    } catch (err) {
+        res.status(400).json(err);
+    }
+});
+
+
 // NEW!!!
 router.post('/', async (req, res) => {
     console.log(">>> COMMENT POST NEW <<<");
@@ -10,8 +23,8 @@ router.post('/', async (req, res) => {
     try {
         const newComment = await Comment.create({
             ...req.body,
-            user_id: req.session.user_id,
-            include: { model: User, where: {id: req.session.user_id}},
+            // user_id: req.session.user_id, //remove???
+            // include: { model: User, where: {id: req.session.user_id}}, //remove???
         });
         console.log(newComment);
         res.status(200).json(newComment);
@@ -24,11 +37,12 @@ router.post('/', async (req, res) => {
 // DELETE << should be OK
 router.delete('/:id', async (req, res) => {
     console.log(">>> COMMENT DELETE <<<");
+    // console.log(req.session);
     try {
       const dbCommentData = await Comment.destroy({
         where: {
           id: req.params.id,
-          user_id: req.session.user_id,
+        //   user_id: req.session.user_id, //remove???
         },
       });
   
