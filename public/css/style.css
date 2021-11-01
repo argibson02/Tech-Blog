@@ -182,7 +182,7 @@ img {
 .add-article-container {
   display: flex;
   flex-wrap: wrap;
-  width: 35%;
+  width: 80%;
   min-height: 30%;
   /* min-width: 35%; */
   margin: 5px auto;
@@ -192,7 +192,7 @@ img {
   border-width: medium;
   background-color: var(--light);
   color: var(--dark);
-  padding: 50px;
+  padding: 10px;
   text-align: center;
   background-color: var(--tertiary);
 }
@@ -201,7 +201,7 @@ img {
 .add-comment-container {
   display: flex;
   flex-wrap: wrap;
-  width: 35%;
+  width: 80%;
   min-height: 30%;
   /* min-width: 35%; */
   margin: 5px auto;
@@ -211,7 +211,7 @@ img {
   border-width: medium;
   background-color: var(--light);
   color: var(--dark);
-  padding: 50px;
+  padding: 10px;
   text-align: center;
   background-color: var(--tertiary);
 }
@@ -220,7 +220,7 @@ img {
 .edit-article-container {
   display: flex;
   flex-wrap: wrap;
-  width: 35%;
+  width: 80%;
   min-height: 30%;
   /* min-width: 35%; */
   margin: 5px auto;
@@ -230,7 +230,7 @@ img {
   border-width: medium;
   background-color: var(--light);
   color: var(--dark);
-  padding: 50px;
+  padding: 10px;
   text-align: center;
   background-color: var(--tertiary);
 }
@@ -240,7 +240,7 @@ img {
   margin: 20px;
   flex: 0 1 300px;
   padding: 5px;
-  width: 90%;
+  width: 100%;
   min-height: 40%;
   border: 3px solid var(--primary);
   border-radius: var(--border-radius);
@@ -268,4 +268,8 @@ img {
   background-color: var(--light);
   padding: 0.625rem;
   border-bottom-style: solid;
+}
+
+.custom-h2 {
+  text-align: center;
 }
