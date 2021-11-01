@@ -1,3 +1,25 @@
+{{!-- SHOW ORIGINAL ARTICLE --}}
+<div class="">
+  <div class="article-card">
+    <div class="article-card-header">
+      {{article.article_title}}
+    </div>
+    <div class="card-body">
+      <p>
+        {{article.description}}
+      </p>
+      <p>
+        Author:
+        {{article.author}}
+        {{article.updatedAt}}
+      </p>
+      {{#each article.comment as |comment|}}
+      {{> comment-details}}
+      {{/each}}
+    </div>
+  </div>
+
+{{!-- EDIT ARTICLE --}}
 <div class="add-article-container">
   <h2>Edit a post</h2>
   <form class="new-article-form">
@@ -22,6 +44,14 @@
     </button>
   </form>
 </div>
-<script src="/js/edit-article.js"></script>
+<script src="../utils/edit-article.js"></script>
 
-{{!-- CLEAN --}}
+
+{{!-- COMMENTS --}}
+  <div class="article-card">
+    <div class="card-body">
+      {{#each article.comments as |comment|}}
+      {{> comment-details}}
+      {{/each}}
+    </div>
+  </div>
