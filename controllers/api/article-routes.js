@@ -50,7 +50,8 @@ router.post('/', async (req, res) => {
             // user_id: req.session.id,
         });
         res.status(200).json(newArticle);
-        document.location.replace(`/article/${newArticle.dataValues.id}`);
+        document.location.replace(`/`);
+        // document.location.replace(`/article/${newArticle.dataValues.id}`);
     } catch (err) {
         res.status(400).json(err);
     }
