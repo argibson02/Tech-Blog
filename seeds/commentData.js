@@ -4,7 +4,6 @@ const commentData = [
   {
     description: 'Blossoming Apricot 1',
     author: 'Person2',
-    timestamp: 'May 30, 2021',
     article_id: 1,
     user_id: 2
   },

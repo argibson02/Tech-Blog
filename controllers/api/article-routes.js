@@ -3,7 +3,7 @@ const { Article, User, Comment } = require('../../models');
 const withAuth = require('../../utils/auth.js');
 
 // GET one article
-router.get('/:id', withAuth, async (req, res) => {
+router.get('/:id', async (req, res) => {
     console.log(">>> ARTICLE GET 01 <<<");
     try {
         const dbArticleData = await Article.findByPk(req.params.id, {
@@ -13,8 +13,8 @@ router.get('/:id', withAuth, async (req, res) => {
                     attributes: [
                         'id',
                         'description',
-                        'author',
-                        'timestamp',
+                        'author', 
+                        'created_at'
                     ],
                 },
                 {
@@ -32,7 +32,7 @@ router.get('/:id', withAuth, async (req, res) => {
 });
 
 // NEW!!!
-router.post('/', withAuth, async (req, res) => {
+router.post('/', async (req, res) => {
     console.log(">>> ARTICLE POST NEW <<<");
     try {
         const newArticle = await Article.create({
@@ -47,7 +47,7 @@ router.post('/', withAuth, async (req, res) => {
 });
 
 // EDIT!!!
-router.put('/:id', withAuth, async (req, res) => {
+router.put('/:id', async (req, res) => {
     console.log(">>> ARTICLE PUT UPDATE <<<");
     try {
         const dbArticleData = await Article.findByPk(
@@ -71,7 +71,7 @@ router.put('/:id', withAuth, async (req, res) => {
 
 
 // DELETE << should be OK
-router.delete('/:id', withAuth, async (req, res) => {
+router.delete('/:id', async (req, res) => {
     console.log(">>> ARTICLE DELETE <<<");
     try {
       const dbArticleData = await Article.destroy({

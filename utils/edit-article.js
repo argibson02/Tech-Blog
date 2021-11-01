@@ -1,11 +1,8 @@
-var timeNow = require('/helper.js');
-
 async function editFormHandler(event) {
   event.preventDefault();
   const article_title = document.querySelector('#article_title').value;
   const description = document.querySelector('#description').value;
   const author = document.querySelector('#author').value;
-  const timestamp = timeNow();
 
   // What will the value of has_nuts be if the box in the form is checked? 
   // The value of has_nuts will be true if the box is checked. 
@@ -26,8 +23,7 @@ async function editFormHandler(event) {
     body: JSON.stringify({
       article_title,
       description,
-      author,
-      timestamp,
+      author
     }),
     headers: {
       'Content-Type': 'application/json',

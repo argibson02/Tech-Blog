@@ -4,7 +4,7 @@ const withAuth = require('../../utils/auth.js');
 
 
 // NEW!!!
-router.post('/', withAuth, async (req, res) => {
+router.post('/', async (req, res) => {
     console.log(">>> COMMENT POST NEW <<<");
     try {
         const newComment = await Comment.create({
@@ -20,7 +20,7 @@ router.post('/', withAuth, async (req, res) => {
 
 
 // DELETE << should be OK
-router.delete('/:id', withAuth, async (req, res) => {
+router.delete('/:id', async (req, res) => {
     console.log(">>> COMMENT DELETE <<<");
     try {
       const dbCommentData = await Comment.destroy({

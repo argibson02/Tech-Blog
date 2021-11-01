@@ -1,18 +1,14 @@
-var timeNow = require('/helper.js');
-
 async function newFormHandler(event) {
   event.preventDefault();
 
   const description = document.querySelector('#description').value;
   const author = document.querySelector('#author').value;
-  const timestamp = timeNow();
 
   const response = await fetch(`/api/dish`, {
     method: 'POST',
     body: JSON.stringify({
       description,
-      author,
-      timestamp,
+      author
     }),
     headers: {
       'Content-Type': 'application/json',
