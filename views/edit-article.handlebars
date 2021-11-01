@@ -19,36 +19,42 @@
     </div>
   </div>
 
-    {{#if loggedIn}}
-{{!-- EDIT ARTICLE --}}
-<div class="add-article-container">
-  <h2>Edit a post</h2>
-  <form class="add-article-form">
-    <label for="article_title">
-      Title:
-    </label>
-    <br />
-    <textarea id="article_title" name="article_title" rows="2" cols="30">
+  {{#if loggedIn}}
+  {{!-- EDIT ARTICLE --}}
+  <div class="add-article-container">
+    <h2>Edit a post</h2>
+    <form class="add-article-form">
+      <label for="article_title">
+        Title:
+      </label>
+      <br />
+      <textarea id="article_title" name="article_title" rows="2" cols="30">
       {{article_title}}
     </textarea>
-    <br />
-    <label for="description">
-      Description:
-    </label>
-    <br />
-    <textarea id="description" name="description" rows="5" cols="30">
+      <br />
+      <label for="description">
+        Description:
+      </label>
+      <br />
+      <textarea id="description" name="description" rows="5" cols="30">
       {{description}}
     </textarea>
-    <br />
-    <button type="submit" value="Submit">
-      Submit
-    </button>
-  </form>
-</div>
-<script src="../utils/edit-article.js"></script>
-{{/if}}
+      <br />
+      <button type="submit" value="Submit">
+        Submit
+      </button>
+    </form>
+  </div>
+  <script src="../utils/edit-article.js"></script>
 
-{{!-- COMMENTS --}}
+  {{!-- DELETE ARTICLE --}}
+  <div class="form-group">
+    <a class="btn btn-primary" href="/api/delete/{{id}}">Create a new Post</a>
+  </div>
+
+  {{/if}}
+
+  {{!-- COMMENTS --}}
   <div class="article-card">
     <div class="card-body">
       {{#each article.comments as |comment|}}

@@ -30,25 +30,12 @@ router.get('/', async (req, res) => {
 
 router.get('/dashboard', async (req, res) => {
   try {
-    const dbArticleData = await Article.findAll({
-      include: [
-        {
-          model: User,
-          attributes: ['id', 'username'],
-        },
-      ],
-    },
-      {
-        where: {
-          user_id: req.session.id
-        }
-      }
-    );
+    const dbArticleData = await Article.findAll({where: { user_id: req.session.id }});
     const articles = dbArticleData.map((article) => // change to articles
       article.get({ plain: true })
     );
-
-    res.render('homepage', {
+    console.log(req.session.id);
+    res.render('view-all-article', {
       articles,
       loggedIn: req.session.loggedIn,
     });
