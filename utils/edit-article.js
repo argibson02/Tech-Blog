@@ -39,4 +39,4 @@ async function editFormHandler(event) {
   }
 }
 
-document.querySelector('.edit-article-form').addEventListener('submit', editFormHandler);
+document.querySelector('.add-article-form').addEventListener('submit', editFormHandler);

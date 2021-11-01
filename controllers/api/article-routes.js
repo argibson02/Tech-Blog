@@ -24,12 +24,11 @@ router.get('/:id', async (req, res) => {
 // NEW!!!
 router.post('/', async (req, res) => {
     console.log(">>> ARTICLE POST NEW <<<");
-    console.log(req.session.id);
+    // console.log(req.session.id);
     try {
         const newArticle = await Article.create({
             ...req.body,
-            user_id: req.session.id,
-
+            // user_id: req.session.id,
         });
 
         res.status(200).json(newArticle);
@@ -40,24 +39,26 @@ router.post('/', async (req, res) => {
 
 // EDIT!!!
 router.put('/:id', async (req, res) => {
-    console.log(">>> ARTICLE PUT UPDATE <<<");
+    console.log(">>> ARTICLE POST NEW <<<");
+    // console.log(req.params);
+    // console.log(req.body);
     try {
-        const dbArticleData = await Article.findByPk(
-            {
-                article_title: req.body.article_title,
-                description: req.body.description
+        const updateArticle = await Article.update(req.body, {
+            where: {
+                id: req.params.id,
             },
-            {
-                where: {
-                    id: req.params.id,
-                    user_id: req.session.user_id,
-                },
-            });
-        const article = dbArticleData.get({ plain: true });
-        res.render('view-single-article', { article, loggedIn: req.session.loggedIn });
+        });
+        // console.log(updateArticle);
+        if (!updateArticle[0]) { // double check here
+            res.status(404).json({ message: 'No article with this id!' });
+            return;
+        }
+        res.status(200).json(updateArticle);
+        // res.render('view-single-article', { article, loggedIn: req.session.loggedIn });
+        // res.status(200).redirect(`/api/article/${req.params.id}`);
+        return;
     } catch (err) {
-        console.log(err);
-        res.status(500).json(err);
+        res.status(400).json(err);
     }
 });
 
@@ -69,7 +70,7 @@ router.delete('/:id', async (req, res) => {
         const dbArticleData = await Article.destroy({
             where: {
                 id: req.params.id,
-                user_id: req.session.user_id,
+                // user_id: req.session.user_id,
             },
         });
 

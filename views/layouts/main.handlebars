@@ -15,7 +15,9 @@
   </header>
   <nav>
     <a href="/">Home</a>
-    <a href="/api/user">My Activity</a>
+    {{#if loggedIn}}
+    <a href="/api/dashboard">My Activity</a>
+    {{/if}}
     {{#if loggedIn}}
     <button id="logout" class="btn-no-style">Logout</button>
     {{else}}
@@ -26,9 +28,11 @@
     <aside>
       <h2>Enjoy posting!</h2>
       <br />
+      {{#if loggedIn}}
       <div class="form-group">
-        <a class="btn btn-primary" href="/api/article/new">Create a new Post</a>
+        <a class="btn btn-primary" href="/new">Create a new Post</a>
       </div>
+      {{/if}}
     </aside>
     <div class="article">
       {{{body}}}
@@ -41,5 +45,3 @@
 </body>
 
 </html>
-
-{{!-- CLEAN --}}

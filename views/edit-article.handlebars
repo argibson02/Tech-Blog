@@ -19,10 +19,11 @@
     </div>
   </div>
 
+    {{#if loggedIn}}
 {{!-- EDIT ARTICLE --}}
 <div class="add-article-container">
   <h2>Edit a post</h2>
-  <form class="new-article-form">
+  <form class="add-article-form">
     <label for="article_title">
       Title:
     </label>
@@ -45,7 +46,7 @@
   </form>
 </div>
 <script src="../utils/edit-article.js"></script>
-
+{{/if}}
 
 {{!-- COMMENTS --}}
   <div class="article-card">
