@@ -21,6 +21,31 @@ router.post('/', async (req, res) => {
   }
 });
 
+// EDIT!!!
+router.put('/:id', async (req, res) => {
+  console.log(">>> ARTICLE PUT UPDATE <<<");
+  try {
+      const dbArticleData = await Article.findByPk(
+          {
+          article_title: req.body.article_title,
+          description: req.body.description
+        },
+        {
+          where: {
+            id: req.params.id,
+            user_id: req.session.user_id,
+          },
+        });
+      const article = dbArticleData.get({ plain: true });
+      res.render('view-single-article', { article, loggedIn: req.session.loggedIn });
+  } catch (err) {
+      console.log(err);
+      res.status(500).json(err);
+  }
+});
+
+
+
 // Login
 router.post('/login', async (req, res) => {
   try {

@@ -5,25 +5,16 @@ const withAuth = require('../../utils/auth.js');
 // GET one article
 router.get('/:id', async (req, res) => {
     console.log(">>> ARTICLE GET 01 <<<");
+    console.log(req.params);
     try {
         const dbArticleData = await Article.findByPk(req.params.id, {
             include: [
-                {
-                    model: Comment,
-                    attributes: [
-                        'id',
-                        'description',
-                        'author', 
-                        'created_at'
-                    ],
-                },
-                {
-                    model: User,
-                    attributes: ['id', 'username'],
-                },
+                { model: Comment, where: {article_id: req.params.id}},
+                // {model: User, where: {id: req.params.user_id}},
             ],
         });
         const article = dbArticleData.get({ plain: true });
+        console.log(article);
         res.render('view-single-article', { article, loggedIn: req.session.loggedIn });
     } catch (err) {
         console.log(err);
@@ -68,6 +59,65 @@ router.put('/:id', async (req, res) => {
         res.status(500).json(err);
     }
 });
+
+
+// router.get('/:id', async (req, res) => {
+//     console.log(">>> ARTICLE PUT UPDATE <<<");
+//     try {
+//         const dbArticleData = await Article.findByPk(
+//             {
+//             article_title: req.body.article_title,
+//             description: req.body.description
+//           },
+//           {
+//             where: {
+//               id: req.params.id,
+//               user_id: req.session.user_id,
+//             },
+//           });
+
+//           const dbCommentData = await Comment.findAll(
+//             {
+//                 description: req.body.com_description,
+//                 author: 
+//                 user_id: {
+//                     type: DataTypes.INTEGER,
+//                     references: {
+//                         model: 'user',
+//                         key: 'id',
+//                     },
+//                 },
+//               },
+//               {
+//                 where: {
+//                   article_id: req.params.id,
+//                 },
+//               });
+
+
+//         const comment = dbCommentData.get({ plain: true });
+//         res.render('view-single-article', { comment, loggedIn: req.session.loggedIn });
+//     } catch (err) {
+//         console.log(err);
+//         res.status(500).json(err);
+//     }
+// });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // DELETE << should be OK

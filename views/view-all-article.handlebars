@@ -1,28 +1,7 @@
-<div class="">
-  <div class="article-card">
-    <div class="article-card-header">
-      {{article.article_title}}
-    </div>
-    <div class="card-body">
-      <p>
-        {{article.description}}
-      </p>
-      <p>
-        Author:
-        {{article.author}}
-        {{article.updatedAt}}
-      </p>
-      {{#each article.comment as |comment|}}
-      {{> comment-details}}
-      {{/each}}
-    </div>
-  </div>
-
-
   <div class="article-card">
     <div class="card-body">
-      {{#each article.comments as |comment|}}
-      {{> comment-details}}
+      {{#each articles as |article|}}
+      {{> article-details}}
       {{/each}}
     </div>
   </div>
