@@ -1,21 +1,17 @@
 async function editFormHandler(event) {
   event.preventDefault();
-  const article_title = document.querySelector('#article_title').value;
-  const description = document.querySelector('#description').value;
 
 // window.location gives us access to the URL. We then use the .split() method to access the number at the end of the URL and set that equal to id.
   const id = window.location.toString().split('/')[
     window.location.toString().split('/').length - 1
   ];
-
-
   const response = await fetch(`/api/article/${id}`, {
-    method: 'PUT',
-    body: JSON.stringify({
-      article_title,
-      description,
-      author
-    }),
+    method: 'DELETE',
+    // body: JSON.stringify({
+    //   article_title,
+    //   description,
+    //   author
+    // }),
     headers: {
       'Content-Type': 'application/json',
     },
@@ -24,8 +20,8 @@ async function editFormHandler(event) {
   if (response.ok) {
     document.location.replace(`/article/${id}`);
   } else {
-    alert('Failed to edit article');
+    alert('Failed to delete article');
   }
 }
 
-document.querySelector('.edit-article-form').addEventListener('submit', editFormHandler);
+document.querySelector('.delete-article-form').addEventListener('delete', editFormHandler);

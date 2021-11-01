@@ -21,6 +21,25 @@ router.get('/:id', async (req, res) => {
     }
 });
 
+// GET one article for edit
+router.get('/edit/:id', async (req, res) => {
+    console.log(">>> ARTICLE GET 01 <<<");
+    // console.log(req.params);
+    try {
+        const dbArticleData = await Article.findByPk(req.params.id, {
+            include: [
+                { model: Comment, where: { article_id: req.params.id } },
+            ],
+        });
+        const article = dbArticleData.get({ plain: true });
+
+        res.render('edit-article', { article, loggedIn: req.session.loggedIn });
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
+});
+
 // NEW!!!
 router.post('/', async (req, res) => {
     console.log(">>> ARTICLE POST NEW <<<");
@@ -30,8 +49,8 @@ router.post('/', async (req, res) => {
             ...req.body,
             // user_id: req.session.id,
         });
-
         res.status(200).json(newArticle);
+        document.location.replace(`/article/${newArticle.dataValues.id}`);
     } catch (err) {
         res.status(400).json(err);
     }
@@ -54,6 +73,7 @@ router.put('/:id', async (req, res) => {
             return;
         }
         res.status(200).json(updateArticle);
+        document.location.replace(`/article/${req.params.id}`);
         // res.render('view-single-article', { article, loggedIn: req.session.loggedIn });
         // res.status(200).redirect(`/api/article/${req.params.id}`);
         return;

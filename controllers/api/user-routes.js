@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { Article, User, Comment  } = require('../../models');
+var localUser = 1;
 
 // CREATE new user
 router.post('/', async (req, res) => {
@@ -49,12 +50,10 @@ router.post('/login', async (req, res) => {
 
     req.session.save(() => {
       req.session.loggedIn = true;
-      req.session.local_user_id = dbUserData.user.dataValues.id;
 
-      console.log(req.session);
-      console.log("vvvvvvvvvvvvvvvv");
-      console.log(dbUserData);
-      // req.session.user_id =
+      var localUser = dbUserData;
+      localUser = localUser.dataValues.id;
+
       res
         .status(200)
         .json({ user: dbUserData, message: 'You are now logged in!' });
@@ -76,4 +75,4 @@ router.post('/logout', (req, res) => {
   }
 });
 
-module.exports = router;
+module.exports = { router, localUser };

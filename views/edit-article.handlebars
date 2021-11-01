@@ -23,13 +23,13 @@
   {{!-- EDIT ARTICLE --}}
   <div class="add-article-container">
     <h2>Edit a post</h2>
-    <form class="add-article-form">
+    <form class="edit-article-form">
       <label for="article_title">
         Title:
       </label>
       <br />
       <textarea id="article_title" name="article_title" rows="2" cols="30">
-      {{article_title}}
+      {{article.article_title}}
     </textarea>
       <br />
       <label for="description">
@@ -37,21 +37,21 @@
       </label>
       <br />
       <textarea id="description" name="description" rows="5" cols="30">
-      {{description}}
+      {{article.description}}
     </textarea>
       <br />
-      <button type="submit" value="Submit">
+      <button class="btn btn-primary" type="submit" value="Submit">
         Submit
       </button>
     </form>
+    <div class="form-group delete-article-form">
+      <button class="btn btn-primary" type="delete" value="delete">
+        Delete this Post
+      </button>
+    </div>
   </div>
+  <script src="../utils/delete-article.js"></script>
   <script src="../utils/edit-article.js"></script>
-
-  {{!-- DELETE ARTICLE --}}
-  <div class="form-group">
-    <a class="btn btn-primary" href="/api/delete/{{id}}">Create a new Post</a>
-  </div>
-
   {{/if}}
 
   {{!-- COMMENTS --}}
