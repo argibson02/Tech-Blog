@@ -5,23 +5,20 @@ async function editFormHandler(event) {
   const id = window.location.toString().split('/')[
     window.location.toString().split('/').length - 1
   ];
+  console.log(id);
   const response = await fetch(`/api/article/${id}`, {
     method: 'DELETE',
-    // body: JSON.stringify({
-    //   article_title,
-    //   description,
-    //   author
-    // }),
+    body: "",
     headers: {
       'Content-Type': 'application/json',
     },
   });
 
   if (response.ok) {
-    document.location.replace(`/article/${id}`);
+    document.location.replace(`/`);
   } else {
     alert('Failed to delete article');
   }
 }
 
-document.querySelector('.delete-article-form').addEventListener('delete', editFormHandler);
+document.querySelector('.delete-article-form').addEventListener('submit', editFormHandler);
