@@ -11,7 +11,7 @@
 
 
 ## Description
-This is a mock Tech Blog built with MySQL, Sequelize, Express.js, and Node.js. Discuss topics here without fear of disagreement because you will probably be the only one using it (and because you are right!😉).
+This is a mock Tech Blog built with MySQL, Sequelize, Express.js, and Node.js. Discuss topics here without fear of disagreement because you will probably be the only one using it. (And because you are right!😉)
 
 
 **[Click this link to go to the Echo Chamber](https://hidden-headland-04885.herokuapp.com/)**
@@ -22,22 +22,29 @@ This is a mock Tech Blog built with MySQL, Sequelize, Express.js, and Node.js. D
 
 
 ## Installation Instructions and Getting Started
-Any modern internet browser will do! Just navigate to **[the webpage.](https://hidden-headland-04885.herokuapp.com/)**
+Any modern internet browser will do! Just navigate to **[the webpage](https://hidden-headland-04885.herokuapp.com/)**.
 
 
 ## Built With
+
+* [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
+* [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
 * [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 * [Node.js](https://nodejs.org/en/)
 * [Express.js](https://expressjs.com/)
 * [MySQL2](https://www.npmjs.com/package/mysql2)
 * [Sequelize](https://www.npmjs.com/package/sequelize)
 * [Dotenv](https://www.npmjs.com/package/dotenv)
+* [Handlebars](https://handlebarsjs.com/)
+* [Brcypt](https://www.npmjs.com/package/bcrypt)
+
 
 ## Technologies Used
 * [Microsoft Visual Studio Code](https://code.visualstudio.com/)
 * [Git Bash](https://git-scm.com/downloads)
 * [GitHub](https://github.com/)
 * [Insomnia](https://insomnia.rest/)
+* [Heroku](https://www.heroku.com/)
 
 ## Practices Used
 * Agile style User Story and Acceptance Criteria.
