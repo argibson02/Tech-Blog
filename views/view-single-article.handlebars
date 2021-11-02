@@ -7,11 +7,9 @@
       <p>
         {{article.description}}
       </p>
-      <p>
-        Author:
-        {{article.author}}
-        {{article.updatedAt}}
-      </p>
+      <p class="article-author"> Author: {{article.author}}</p>
+      <p class="article-time">{{article.updatedAt}}</p>
+
       {{#each article.comment as |comment|}}
       {{> comment-details}}
       {{/each}}

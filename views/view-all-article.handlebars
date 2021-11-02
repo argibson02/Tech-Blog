@@ -1,10 +1,13 @@
- <div class="user-posts">
+<div class="user-posts">
   <h1>Your Authored Articles</h1>
-  <div class="article-card">
-    <div class="card-body">
-      {{#each articles as |article|}}
-      {{> article-details-to-edit}}
-      {{/each}}
-    </div>
+  <div class="card-body">
+    {{#each articles as |article|}}
+    {{> article-details-to-edit}}
+    {{/each}}
   </div>
-  </div> 
+  {{#unless articles}}
+  <div class="article-card">
+    <p class="no-authored">You have no posts!</p>
+  </div>
+  {{/unless}}
+</div>

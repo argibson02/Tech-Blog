@@ -7,6 +7,8 @@
   <title>Echo Chamber Media</title>
   <link rel="stylesheet" type="text/css" href="/css/jass.css">
   <link rel="stylesheet" type="text/css" href="/css/style.css">
+  <link rel="icon" type="image/png" href="/images/echo-chamber-logo.png" sizes="16x16" alt="Icon">
+  <link rel="icon" type="image/png" href="/images/echo-chamber-logo.png" sizes="32x32" alt="Icon">
 </head>
 
 <body>
@@ -33,7 +35,12 @@
   </nav>
   <main>
     <aside>
+      {{#if loggedIn}}
       <h2>Enjoy posting!</h2>
+      {{/if}}
+      {{#unless loggedIn}}
+      <h2>Login or signup to start posting and commenting!</h2>
+      {{/unless}}
       <br />
       {{#if loggedIn}}
       <div class="form-group">
