@@ -18,10 +18,13 @@ router.get('/', async (req, res) => {
     const articles = dbArticleData.map((article) => // change to articles
       article.get({ plain: true })
     );
-
+   console.log("Homepage",req.session)
     res.render('homepage', {
       articles,
       loggedIn: req.session.loggedIn,
+      username:req.session.username,
+      userid:req.session.userid,
+      email:req.session.email
     });
   } catch (err) {
     console.log(err);
@@ -43,6 +46,9 @@ router.get('/dashboard', async (req, res) => {
     res.render('view-all-article', {
       articles,
       loggedIn: req.session.loggedIn,
+      username:req.session.username,
+      userid:req.session.userid,
+      email:req.session.email
     });
   } catch (err) {
     console.log(err);
@@ -70,6 +76,9 @@ router.get('/new', async (req, res) => {
     res.render('add-article', {
       articles,
       loggedIn: req.session.loggedIn,
+      username:req.session.username,
+      userid:req.session.userid,
+      email:req.session.email
     });
   } catch (err) {
     console.log(err);

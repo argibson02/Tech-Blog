@@ -13,6 +13,13 @@
   <header>
     <h1>Welcome to the Echo Chamber!</h1>
   </header>
+  {{#if loggedIn}}
+  <div class="logged-in-as">
+    <p class="logged-info">Username: <span id="username">{{username}}</span></p>
+    <p class="logged-info">Id: <span id="username">{{userid}}</span></p>
+    <p class="logged-info">Email: <span id="username">{{email}}</span></p>
+  </div>
+  {{/if}}
   <nav>
     <a href="/">Home</a>
     {{#if loggedIn}}
@@ -41,7 +48,6 @@
   {{#if loggedIn}}
   <script src="/js/logout.js"></script>
   {{/if}}
-  <script src="./js/add-article.js"></script>
 </body>
 
 </html>

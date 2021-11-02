@@ -10,9 +10,12 @@ router.post('/', async (req, res) => {
       email: req.body.email,
       password: req.body.password,
     });
-
+console.log(dbUserData);
     req.session.save(() => {
       req.session.loggedIn = true;
+      req.session.username = dbUserData.username;
+      req.session.email = dbUserData.email;
+      req.session.userid= dbUserData.dataValues.id
 
       res.status(200).json(dbUserData);
     });
