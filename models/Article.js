@@ -20,7 +20,7 @@ Article.init(
       allowNull: true,
     },
     author: {
-      type: DataTypes.STRING, // might be able to swap this out for username from USER
+      type: DataTypes.STRING,
       references: {
         model: 'user',
         key: 'username',

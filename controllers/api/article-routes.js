@@ -1,6 +1,5 @@
 const router = require('express').Router();
 const { Article, User, Comment } = require('../../models');
-const withAuth = require('../../utils/auth.js');
 
 // GET one article
 router.get('/:id', async (req, res) => {
@@ -9,7 +8,7 @@ router.get('/:id', async (req, res) => {
     try {
         const dbArticleData = await Article.findByPk(req.params.id, {
             include: [
-                { model: Comment, where: { article_id: req.params.id } },
+                { model: Comment, required: false, where: { article_id: req.params.id } },
             ],
         });
         const article = dbArticleData.get({ plain: true });
@@ -28,7 +27,7 @@ router.get('/edit/:id', async (req, res) => {
     try {
         const dbArticleData = await Article.findByPk(req.params.id, {
             include: [
-                { model: Comment, where: { article_id: req.params.id } },
+                { model: Comment, required: false, where: { article_id: req.params.id } },
             ],
         });
         const article = dbArticleData.get({ plain: true });
@@ -49,6 +48,8 @@ router.post('/', async (req, res) => {
             ...req.body,
             // user_id: req.session.id,
         });
+        console.log("VVVVVVVVVVVVVVVVVVVV");
+        console.log(req.body);
         res.status(200).json(newArticle);
         document.location.replace(`/`);
         // document.location.replace(`/article/${newArticle.dataValues.id}`);

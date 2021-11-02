@@ -37,7 +37,7 @@ router.get('/dashboard', async (req, res) => {
   console.log(local.localUser);
   
   try {
-    const dbArticleData = await Article.findAll({where: { user_id: local.localUser }});
+    const dbArticleData = await Article.findAll({where: { user_id: req.session.userid }});
     // console.log(local.localUser);
     const articles = dbArticleData.map((article) => // change to articles
       article.get({ plain: true })
