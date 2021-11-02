@@ -284,5 +284,10 @@ img {
 }
 
 .hidden {
-  display: inherit;
+  display: none;
+}
+
+.user-posts {
+  display: flex;
+  flex-direction: column;
 }

@@ -32,7 +32,7 @@
   <!--What isn't it responsible for? -->
   <!--It is not responsible for data-related logic, requests, or business-logic. -->
 
-    {{#if loggedIn}}
+  {{#if loggedIn}}
   <div class="edit-article-container">
     <h2 class="custom-h2">Add a comment!</h2>
     <form class="add-comment-form">
@@ -44,6 +44,10 @@
       {{description}}
     </textarea>
       <br />
+      <div class="hidden">
+        <p class="logged-info">Username: <span id="username">{{username}}</span></p>
+        <p class="logged-info">Id: <span id="userid">{{userid}}</span></p>
+      </div>
       <button type="submit" value="Submit">
         Submit
       </button>

@@ -39,6 +39,10 @@
       <textarea id="description" name="description" rows="5" cols="30">
       {{article.description}}
     </textarea>
+      <div class="hidden">
+        <p class="logged-info">Username: <span id="username">{{username}}</span></p>
+        <p class="logged-info">Id: <span id="userid">{{userid}}</span></p>
+      </div>
       <br />
       <button class="btn btn-primary" type="submit" value="Submit">
         Submit

@@ -13,8 +13,7 @@ async function editFormHandler(event) {
     method: 'PUT',
     body: JSON.stringify({
       article_title,
-      description,
-      author
+      description
     }),
     headers: {
       'Content-Type': 'application/json',
@@ -22,7 +21,7 @@ async function editFormHandler(event) {
   });
 
   if (response.ok) {
-    document.location.replace(`/article/${id}`);
+    document.location.replace(`/api/article/${id}`);
   } else {
     alert('Failed to edit article');
   }

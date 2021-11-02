@@ -1,7 +1,5 @@
 const router = require('express').Router();
 const { Article, User, Comment } = require('../models');
-const withAuth = require('../utils/auth.js');
-const local = require('./api/user-routes')
 
 // GET all articles for homepage
 router.get('/', async (req, res) => {
@@ -18,7 +16,7 @@ router.get('/', async (req, res) => {
     const articles = dbArticleData.map((article) => // change to articles
       article.get({ plain: true })
     );
-   console.log("Homepage",req.session)
+  //  console.log("Homepage",req.session)
     res.render('homepage', {
       articles,
       loggedIn: req.session.loggedIn,
@@ -34,11 +32,9 @@ router.get('/', async (req, res) => {
 
 // GET for Dashboard
 router.get('/dashboard', async (req, res) => {
-  console.log(local.localUser);
   
   try {
     const dbArticleData = await Article.findAll({where: { user_id: req.session.userid }});
-    // console.log(local.localUser);
     const articles = dbArticleData.map((article) => // change to articles
       article.get({ plain: true })
     );

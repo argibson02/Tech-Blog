@@ -1,6 +1,5 @@
 const router = require('express').Router();
 const { Article, User, Comment  } = require('../../models');
-var localUser = 1;
 
 // CREATE new user
 router.post('/', async (req, res) => {
@@ -10,7 +9,7 @@ router.post('/', async (req, res) => {
       email: req.body.email,
       password: req.body.password,
     });
-console.log(dbUserData);
+// console.log(dbUserData);
     req.session.save(() => {
       req.session.loggedIn = true;
       req.session.username = dbUserData.username;
@@ -50,16 +49,15 @@ router.post('/login', async (req, res) => {
         .json({ message: 'Incorrect email or password. Please try again!' });
       return;
     }
+// console.log(dbUserData);
 
     req.session.save(() => {
       req.session.loggedIn = true;
+      req.session.username = dbUserData.username;
+      req.session.email = dbUserData.email;
+      req.session.userid= dbUserData.dataValues.id
 
-      var localUser = dbUserData;
-      localUser = localUser.dataValues.id;
-
-      res
-        .status(200)
-        .json({ user: dbUserData, message: 'You are now logged in!' });
+      res.status(200).json({ user: dbUserData, message: 'You are now logged in!' });
     });
   } catch (err) {
     console.log(err);
@@ -78,4 +76,4 @@ router.post('/logout', (req, res) => {
   }
 });
 
-module.exports = { router, localUser };
+module.exports = router;

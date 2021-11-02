@@ -19,7 +19,7 @@ router.get('/', async (req, res) => {
 // NEW!!!
 router.post('/', async (req, res) => {
     console.log(">>> COMMENT POST NEW <<<");
-    console.log(req.body);
+    // console.log(req.body);
     try {
         const newComment = await Comment.create({
             ...req.body,

@@ -13,7 +13,7 @@ router.get('/:id', async (req, res) => {
         });
         const article = dbArticleData.get({ plain: true });
 
-        res.render('view-single-article', { article, loggedIn: req.session.loggedIn });
+        res.render('view-single-article', { article, loggedIn: req.session.loggedIn, username:req.session.username, userid:req.session.userid, email:req.session.email });
     } catch (err) {
         console.log(err);
         res.status(500).json(err);
@@ -32,7 +32,7 @@ router.get('/edit/:id', async (req, res) => {
         });
         const article = dbArticleData.get({ plain: true });
 
-        res.render('edit-article', { article, loggedIn: req.session.loggedIn });
+        res.render('edit-article', { article, loggedIn: req.session.loggedIn, username:req.session.username, userid:req.session.userid, email:req.session.email });
     } catch (err) {
         console.log(err);
         res.status(500).json(err);
@@ -49,7 +49,7 @@ router.post('/', async (req, res) => {
             // user_id: req.session.id,
         });
         console.log("VVVVVVVVVVVVVVVVVVVV");
-        console.log(req.body);
+        // console.log(req.body);
         res.status(200).json(newArticle);
         document.location.replace(`/`);
         // document.location.replace(`/article/${newArticle.dataValues.id}`);
@@ -60,7 +60,7 @@ router.post('/', async (req, res) => {
 
 // EDIT!!!
 router.put('/:id', async (req, res) => {
-    console.log(">>> ARTICLE POST NEW <<<");
+    console.log(">>> ARTICLE PUT <<<");
     // console.log(req.params);
     // console.log(req.body);
     try {
@@ -75,7 +75,7 @@ router.put('/:id', async (req, res) => {
             return;
         }
         res.status(200).json(updateArticle);
-        document.location.replace(`/article/${req.params.id}`);
+        // document.location.replace(`/api/article/${req.params.id}`);
         // res.render('view-single-article', { article, loggedIn: req.session.loggedIn });
         // res.status(200).redirect(`/api/article/${req.params.id}`);
         return;
