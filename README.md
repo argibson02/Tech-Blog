@@ -13,6 +13,13 @@
 ## Description
 This is a mock Tech Blog built with MySQL, Sequelize, Express.js, and Node.js. Discuss topics here without fear of disagreement because you will probably be the only one using it. (And because you are right!😉)
 
+Features:
+* Login, sign-up, or logout.
+* Encrypted passwords.
+* Session data tracked in cookies. 🍪
+* Add, delete, and/or edit your posts.
+* Comments on others' posts. (or your own!)
+* Lurk around if you don't feel like signing up. 👻
 
 **[Click this link to go to the Echo Chamber](https://hidden-headland-04885.herokuapp.com/)**
 
