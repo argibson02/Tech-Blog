@@ -1,4 +1,4 @@
-# Tech-Blog
+# Tech-Blog - The Echo Chamber
   -----------------
 
 ## Table of Contents
@@ -11,29 +11,19 @@
 
 
 ## Description
-This is a mock Tech Blog built with MySQL, Sequelize, Express.js, and Node.js.
+This is a mock Tech Blog built with MySQL, Sequelize, Express.js, and Node.js. Discuss topics here without fear of disagreement because you will probably be the only one using it (and because you are right!😉).
 
 
-**[Click this link WATCH the Tech Blog in action]()**
+**[Click this link to go to the Echo Chamber](https://hidden-headland-04885.herokuapp.com/)**
 
-
-![Demo image of Tech Blog](./images/tech-blog-demo.png)
 ![Demo GIF of Tech Blog](./images/tech-blog-demo.gif)
 
  <br />
 
 
 ## Installation Instructions and Getting Started
-Node.js, MySQL2, Express.js, Sequelize, Bcrypt, and Dotenv all need to be installed. 
+Any modern internet browser will do! Just navigate to **[the webpage.](https://hidden-headland-04885.herokuapp.com/)**
 
-Startup Instructions
-1) To start the application, navigate in a command console to the "db" folder that houses schema.sql. Enter in 'mysql -u root -p' and enter in your password. This will start up a MySQL instance. Then, enter into console 'source schema.sql', hit enter, and then 'source seeds.sql' and press enter again.
-
-2) Navigate to the folder that houses index.js and enter in 'node index.js'. This will build out tables in the database. Exit of that node session (*ctrl+c* in Windows).
-
-3) Start a new session with 'node seeds/index.js'. This will seed the database with information. Exit of that node session (*ctrl+c* in Windows).
-
-4) Enter in 'node index.js' again. You are now ready to begin.
 
 ## Built With
 * [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
