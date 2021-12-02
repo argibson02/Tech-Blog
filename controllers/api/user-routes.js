@@ -49,7 +49,6 @@ router.post('/login', async (req, res) => {
         .json({ message: 'Incorrect email or password. Please try again!' });
       return;
     }
-    // console.log(dbUserData);
 
     req.session.save(() => {
       req.session.loggedIn = true;
