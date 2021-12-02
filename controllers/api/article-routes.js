@@ -1,10 +1,9 @@
 const router = require('express').Router();
-const { Article, User, Comment } = require('../../models');
+const { Article, Comment } = require('../../models');
 
 // GET one article
 router.get('/:id', async (req, res) => {
-    console.log(">>> ARTICLE GET 01 <<<");
-    // console.log(req.params);
+
     try {
         const dbArticleData = await Article.findByPk(req.params.id, {
             include: [
@@ -13,7 +12,7 @@ router.get('/:id', async (req, res) => {
         });
         const article = dbArticleData.get({ plain: true });
 
-        res.render('view-single-article', { article, loggedIn: req.session.loggedIn, username:req.session.username, userid:req.session.userid, email:req.session.email });
+        res.render('view-single-article', { article, loggedIn: req.session.loggedIn, username: req.session.username, userid: req.session.userid, email: req.session.email });
     } catch (err) {
         console.log(err);
         res.status(500).json(err);
@@ -22,8 +21,6 @@ router.get('/:id', async (req, res) => {
 
 // GET one article for edit
 router.get('/edit/:id', async (req, res) => {
-    console.log(">>> ARTICLE GET 01 <<<");
-    // console.log(req.params);
     try {
         const dbArticleData = await Article.findByPk(req.params.id, {
             include: [
@@ -32,7 +29,7 @@ router.get('/edit/:id', async (req, res) => {
         });
         const article = dbArticleData.get({ plain: true });
 
-        res.render('edit-article', { article, loggedIn: req.session.loggedIn, username:req.session.username, userid:req.session.userid, email:req.session.email });
+        res.render('edit-article', { article, loggedIn: req.session.loggedIn, username: req.session.username, userid: req.session.userid, email: req.session.email });
     } catch (err) {
         console.log(err);
         res.status(500).json(err);
@@ -41,18 +38,12 @@ router.get('/edit/:id', async (req, res) => {
 
 // NEW!!!
 router.post('/', async (req, res) => {
-    console.log(">>> ARTICLE POST NEW <<<");
-    // console.log(req.session.id);
     try {
         const newArticle = await Article.create({
             ...req.body,
-            // user_id: req.session.id,
         });
-        console.log("VVVVVVVVVVVVVVVVVVVV");
-        // console.log(req.body);
         res.status(200).json(newArticle);
         document.location.replace(`/`);
-        // document.location.replace(`/article/${newArticle.dataValues.id}`);
     } catch (err) {
         res.status(400).json(err);
     }
@@ -60,24 +51,17 @@ router.post('/', async (req, res) => {
 
 // EDIT!!!
 router.put('/:id', async (req, res) => {
-    console.log(">>> ARTICLE PUT <<<");
-    // console.log(req.params);
-    // console.log(req.body);
     try {
         const updateArticle = await Article.update(req.body, {
             where: {
                 id: req.params.id,
             },
         });
-        // console.log(updateArticle);
-        if (!updateArticle[0]) { // double check here
+        if (!updateArticle[0]) {
             res.status(404).json({ message: 'No article with this id!' });
             return;
         }
         res.status(200).json(updateArticle);
-        // document.location.replace(`/api/article/${req.params.id}`);
-        // res.render('view-single-article', { article, loggedIn: req.session.loggedIn });
-        // res.status(200).redirect(`/api/article/${req.params.id}`);
         return;
     } catch (err) {
         res.status(400).json(err);
@@ -87,15 +71,12 @@ router.put('/:id', async (req, res) => {
 
 // DELETE << should be OK
 router.delete('/:id', async (req, res) => {
-    console.log(">>> ARTICLE DELETE <<<");
     try {
         const dbArticleData = await Article.destroy({
             where: {
                 id: req.params.id,
-                // user_id: req.session.user_id,
             },
         });
-
         if (!dbArticleData) {
             res.status(404).json({ message: 'No article found with this id!' });
             return;
@@ -107,6 +88,4 @@ router.delete('/:id', async (req, res) => {
 });
 
 
-
 module.exports = router;
-
